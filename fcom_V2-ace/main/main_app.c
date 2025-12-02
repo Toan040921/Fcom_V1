@@ -36,6 +36,7 @@
 #include <string.h>
 #include "sdkconfig.h"
 #include "driver/gpio.h"
+#include "driver/uart.h"
 #include "driver/spi_master.h"
 #include "json_parser.h"
 
@@ -728,6 +729,64 @@ void main_sim_init()
     ESP_LOGI(TAG, "%s %d", __func__, __LINE__);
 }
 
+// --- Software UART (TX only) on pins GPIO19 (TX) and GPIO25 (RX) ---
+#define SOFT_UART_TX_PIN GPIO_NUM_19
+#define SOFT_UART_RX_PIN GPIO_NUM_25
+#define SOFT_UART_BAUD    9600
+
+static inline void soft_uart_init(void)
+{
+    // Configure TX pin as output and idle HIGH
+    gpio_pad_select_gpio(SOFT_UART_TX_PIN);
+    gpio_set_direction(SOFT_UART_TX_PIN, GPIO_MODE_OUTPUT);
+    gpio_set_level(SOFT_UART_TX_PIN, 1);
+
+    // Configure RX pin as input (pull-up enabled for idle HIGH)
+    gpio_pad_select_gpio(SOFT_UART_RX_PIN);
+    gpio_set_direction(SOFT_UART_RX_PIN, GPIO_MODE_INPUT);
+    gpio_set_pull_mode(SOFT_UART_RX_PIN, GPIO_PULLUP_ONLY);
+}
+
+// Send one byte as UART (start bit, 8 data bits, 1 stop) - blocking
+static void soft_uart_send_byte(uint8_t b)
+{
+    const uint32_t bit_time_us = (1000000UL + (SOFT_UART_BAUD / 2)) / SOFT_UART_BAUD; // rounded
+
+    // Start bit (LOW)
+    gpio_set_level(SOFT_UART_TX_PIN, 0);
+    esp_rom_delay_us(bit_time_us);
+
+    // Data bits (LSB first)
+    for (int i = 0; i < 8; i++)
+    {
+        gpio_set_level(SOFT_UART_TX_PIN, (b >> i) & 1);
+        esp_rom_delay_us(bit_time_us);
+    }
+
+    // Stop bit (HIGH)
+    gpio_set_level(SOFT_UART_TX_PIN, 1);
+    esp_rom_delay_us(bit_time_us);
+}
+
+static void soft_uart_send_buffer(const char *buf, size_t len)
+{
+    for (size_t i = 0; i < len; i++)
+    {
+        soft_uart_send_byte((uint8_t)buf[i]);
+    }
+}
+
+static void soft_uart_task(void *pvParameters)
+{
+    const char *msg = "Hello, debug\r\n";
+    while (1)
+    {
+        soft_uart_send_buffer(msg, strlen(msg));
+        vTaskDelay(2000 / portTICK_PERIOD_MS);
+    }
+}
+
+
 void print_reset_reason(RESET_REASON reason)
 {
   switch ( reason)
@@ -795,6 +854,10 @@ void app_main(void)
     ESP_LOGI(TAG, "HMI init");
     UserTimer_Init();
     hmi_task();
+    // Initialize soft UART and start TX task so external USB-TTL adapters connected to
+    // GPIO19 (TX) and GPIO25 (RX) will see 'Hello, debug' periodically.
+    soft_uart_init();
+    xTaskCreatePinnedToCore(soft_uart_task, "soft_uart_task", 2048, NULL, 5 | portPRIVILEGE_BIT, NULL, 1);
 
 	ESP_LOGW(TAG, "Free memory: %d bytes  %d ++", esp_get_free_heap_size(), __LINE__);
     ESP_LOGI(TAG, "Mount System file");
