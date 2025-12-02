@@ -1,0 +1,296 @@
+I (28) boot: ESP-IDF v4.3.2-dirty 2nd stage bootloader
+I (29) boot: compile time 21:58:34
+I (29) boot: chip revision: 1
+I (32) boot_comm: chip revision: 1, min. bootloader chip revision: 0
+I (39) boot.esp32: SPI Speed      : 40MHz
+I (44) boot.esp32: SPI Mode       : DIO
+I (48) boot.esp32: SPI Flash Size : 16MB
+I (53) boot: Enabling RNG early entropy source...
+I (58) boot: Partition Table:
+I (62) boot: ## Label            Usage          Type ST Offset   Length
+I (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+I (76) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+I (84) boot:  2 factory          factory app      00 00 00010000 00180000
+I (91) boot:  3 storage          Unknown data     01 82 00190000 000f0000
+I (99) boot: End of partition table
+I (103) boot_comm: chip revision: 1, min. application chip revision: 0
+I (110) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=299c4h (170436) map
+I (181) esp_image: segment 1: paddr=000399ec vaddr=3ffbdb60 size=04b30h ( 19248) load
+I (188) esp_image: segment 2: paddr=0003e524 vaddr=40080000 size=01af4h (  6900) load
+I (191) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=c31a0h (799136) map
+I (484) esp_image: segment 4: paddr=001031c8 vaddr=40081af4 size=1ba48h (113224) load
+I (531) esp_image: segment 5: paddr=0011ec18 vaddr=50000000 size=00010h (    16) load
+I (545) boot: Loaded app from partition at offset 0x10000
+I (545) boot: Disabling RNG early entropy source...
+I (557) cpu_start: Pro cpu up.
+I (557) cpu_start: Starting app cpu, entry point is 0x40081288
+0x40081288: call_start_cpu1 at E:/0.Project/12.Nguyen/ESP32/.esp/esp-idf/components/esp_system/port/cpu_start.c:150
+
+I (0) cpu_start: App cpu up.
+I (573) cpu_start: Pro cpu start user code
+I (573) cpu_start: cpu freq: 160000000
+I (573) cpu_start: Application information:
+I (578) cpu_start: Project name:     gateway_rf_mqtt
+I (584) cpu_start: App version:      1
+I (588) cpu_start: Compile time:     Feb 10 2022 21:58:00
+I (594) cpu_start: ELF file SHA256:  b74868747965ddcd...
+I (600) cpu_start: ESP-IDF:          v4.3.2-dirty
+I (606) heap_init: Initializing. RAM available for dynamic allocation:
+I (613) heap_init: At 3FFAFF10 len 000000F0 (0 KiB): DRAM
+I (619) heap_init: At 3FFB6388 len 00001C78 (7 KiB): DRAM
+I (625) heap_init: At 3FFB9A20 len 00004108 (16 KiB): DRAM
+I (631) heap_init: At 3FFC9538 len 00016AC8 (90 KiB): DRAM
+I (637) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM
+I (643) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM
+I (650) heap_init: At 4009D53C len 00002AC4 (10 KiB): IRAM
+I (657) spi_flash: detected chip: generic
+I (661) spi_flash: flash io: dio
+I (666) cpu_start: Starting scheduler on PRO CPU.
+I (0) cpu_start: Starting scheduler on APP CPU.
+I (740) BTDM_INIT: BT controller compile version [6a07b06]
+I (750) system_api: Base MAC address is not set
+I (750) system_api: read default base MAC address from EFUSE
+I (760) phy_init: phy_version 4670,719f9f6,Feb 18 2021,17:07:07
+I (1100) GATTS_TABLE: app_main init bluetooth
+
+I (1160) GATTS_TABLE: event 0++
+I (1170) HTTPS: Get certificate mqtt
+I (1170) GATTS_TABLE: event 22++
+I (1170) GATTS_TABLE: create attribute table successfully, the number handle = 4
+
+I (1180) GATTS_TABLE: gap event 0++
+I (1180) GATTS_TABLE: gap event 1++
+I (1190) GATTS_TABLE: event 12++
+I (1190) GATTS_TABLE: SERVICE_START_EVT, status 0, service_handle 40
+I (1200) HTTPS: Init Wifi/Ethernet
+I (1200) GATTS_TABLE: gap event 6++
+I (1200) GATTS_TABLE: advertising start successfully
+I (1220) wifi:wifi driver task: 3ffd474c, prio:23, stack:6656, core=0
+I (1230) wifi:wifi firmware version: eb52264
+I (1230) wifi:wifi certification version: v7.0
+I (1230) wifi:config NVS flash: enabled
+I (1230) wifi:config nano formating: disabled
+I (1240) wifi:Init data frame dynamic rx buffer num: 32
+I (1240) wifi:Init management frame dynamic rx buffer num: 32
+I (1250) wifi:Init management short buffer num: 32
+I (1250) wifi:Init dynamic tx buffer num: 32
+I (1260) wifi:Init static rx buffer size: 1600
+I (1260) wifi:Init static rx buffer num: 10
+I (1260) wifi:Init dynamic rx buffer num: 32
+I (1270) wifi_init: rx ba win: 6
+I (1270) wifi_init: tcpip mbox: 32
+I (1280) wifi_init: udp mbox: 6
+I (1280) wifi_init: tcp mbox: 6
+I (1280) wifi_init: tcp tx win: 5744
+I (1290) wifi_init: tcp rx win: 5744
+I (1290) wifi_init: tcp mss: 1440
+I (1300) wifi_init: WiFi IRAM OP enabled
+I (1300) wifi_init: WiFi RX IRAM OP enabled
+I (1310) example_connect: Connecting to Xiaomi_220F...
+I (1320) wifi:mode : sta (98:cd:ac:bf:9b:44)
+I (1320) wifi:enable tsf
+I (1320) example_connect: Waiting for IP(s)
+I (4460) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (5210) wifi:state: init -> auth (b0)
+I (6210) wifi:state: auth -> init (200)
+I (6210) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (6210) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (9350) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (12490) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (12490) wifi:state: init -> auth (b0)
+I (13490) wifi:state: auth -> init (200)
+I (13500) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (13500) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (16640) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (19780) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (19780) wifi:state: init -> auth (b0)
+I (20780) wifi:state: auth -> init (200)
+I (20780) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (20790) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (23930) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (27060) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (27070) wifi:state: init -> auth (b0)
+I (28070) wifi:state: auth -> init (200)
+I (28070) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (28070) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (29220) GATTS_TABLE: event 14++
+I (29220) GATTS_TABLE: ESP_GATTS_CONNECT_EVT, conn_id = 0
+I (29220) GATTS_TABLE: 64 88 b5 22 f4 1a 
+I (29890) GATTS_TABLE: gap event 20++
+I (29890) GATTS_TABLE: update connection params status = 0, min_int = 16, max_int = 32,conn_int = 30,latency = 0, timeout = 400
+I (30600) GATTS_TABLE: gap event 20++
+I (30600) GATTS_TABLE: update connection params status = 0, min_int = 0, max_int = 0,conn_int = 6,latency = 0, timeout = 500
+I (30790) GATTS_TABLE: event 4++
+I (30790) GATTS_TABLE: ESP_GATTS_MTU_EVT, MTU 250
+I (30860) GATTS_TABLE: gap event 20++
+I (30860) GATTS_TABLE: update connection params status = 0, min_int = 0, max_int = 0,conn_int = 30,latency = 0, timeout = 400
+I (30980) GATTS_TABLE: event 2++
+I (30980) GATTS_TABLE: GATT_WRITE_EVT, handle = 42, value len = 83, value :
+I (30980) GATTS_TABLE: ESP_GATTS_WRITE_EVT++
+I (30980) GATTS_TABLE: {"name":"Xiaomi_
+I (30990) GATTS_TABLE: 220F","pass":"ab
+I (30990) GATTS_TABLE: c@13579","pair":
+I (31000) GATTS_TABLE: "test16UQLq1HZ3x
+I (31000) GATTS_TABLE: CNV6pMoA2CDjb4ty
+I (31010) GATTS_TABLE: F"}
+I (31010) GATTS_TABLE: ESP_GATTS_WRITE_EVT--
+I (31220) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (34360) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (34360) wifi:state: init -> auth (b0)
+I (35360) wifi:state: auth -> init (200)
+I (35360) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (35360) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (38510) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (41640) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (41640) wifi:state: init -> auth (b0)
+I (42650) wifi:state: auth -> init (200)
+I (42650) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (42650) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (45790) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (48930) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (48930) wifi:state: init -> auth (b0)
+I (49930) wifi:state: auth -> init (200)
+I (49930) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (49930) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (53080) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (56210) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (56220) wifi:state: init -> auth (b0)
+I (57220) wifi:state: auth -> init (200)
+I (57220) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (57220) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (60360) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (63500) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (63500) wifi:state: init -> auth (b0)
+I (64500) wifi:state: auth -> init (200)
+I (64500) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (64510) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (67650) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (70780) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (70790) wifi:state: init -> auth (b0)
+I (71790) wifi:state: auth -> init (200)
+I (71790) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (71790) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (74930) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (78070) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (78070) wifi:state: init -> auth (b0)
+I (79070) wifi:state: auth -> init (200)
+I (79070) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (79070) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (82220) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (85350) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (85350) wifi:state: init -> auth (b0)
+I (86360) wifi:state: auth -> init (200)
+I (86360) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (86360) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (89500) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (92640) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (92640) wifi:state: init -> auth (b0)
+I (93640) wifi:state: auth -> init (200)
+I (93640) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (93640) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (96790) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (99920) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (99920) wifi:state: init -> auth (b0)
+I (100930) wifi:state: auth -> init (200)
+I (100930) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (100930) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (104070) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (107210) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (107210) wifi:state: init -> auth (b0)
+I (108210) wifi:state: auth -> init (200)
+I (108210) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (108210) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (111360) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (114500) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (114500) wifi:state: init -> auth (b0)
+I (115500) wifi:state: auth -> init (200)
+I (115500) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (115500) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (118640) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (121780) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (121780) wifi:state: init -> auth (b0)
+I (122780) wifi:state: auth -> init (200)
+I (122780) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (122790) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (125930) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (129070) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (129070) wifi:state: init -> auth (b0)
+I (130070) wifi:state: auth -> init (200)
+I (130070) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (130070) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (133210) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (136350) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (136350) wifi:state: init -> auth (b0)
+I (137350) wifi:state: auth -> init (200)
+I (137360) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (137360) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (140500) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (143640) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (143640) wifi:state: init -> auth (b0)
+I (144640) wifi:state: auth -> init (200)
+I (144640) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (144640) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (147780) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (150920) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (150930) wifi:state: init -> auth (b0)
+I (151930) wifi:state: auth -> init (200)
+I (151930) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (151930) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (155070) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (158210) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (158210) wifi:state: init -> auth (b0)
+I (159210) wifi:state: auth -> init (200)
+I (159210) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (159210) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (162360) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (165490) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (165500) wifi:state: init -> auth (b0)
+I (166500) wifi:state: auth -> init (200)
+I (166500) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (166500) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (169640) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (172780) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (172780) wifi:state: init -> auth (b0)
+I (173780) wifi:state: auth -> init (200)
+I (173780) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (173780) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (176930) example_connect: Wi-Fi disconnected, trying to reconnect...
+I (180070) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (180070) wifi:state: init -> auth (b0)
+I (180070) wifi:state: auth -> assoc (0)
+I (180080) wifi:state: assoc -> run (10)
+W (180090) wifi:<ba-add>idx:0 (ifx:0, a0:65:18:c8:b5:d5), tid:0, ssn:0, winSize:64
+I (180100) wifi:connected with Xiaomi_220F, aid = 2, channel 6, BW20, bssid = a0:65:18:c8:b5:d5
+I (180110) wifi:security: WPA2-PSK, phy: bgn, rssi: -77
+I (180110) wifi:pm start, type: 1
+
+I (180110) wifi:AP's beacon interval = 102400 us, DTIM period = 1
+I (181170) example_connect: Got IPv6 event: Interface "example_connect: sta" address: fe80:0000:0000:0000:9acd:acff:febf:9b44, type: ESP_IP6_ADDR_IS_LINK_LOCAL
+I (181170) esp_netif_handlers: example_connect: sta ip: 192.168.1.6, mask: 255.255.255.0, gw: 192.168.1.1
+I (181180) example_connect: Got IPv4 event: Interface "example_connect: sta" address: 192.168.1.6
+I (181190) example_connect: Connected to example_connect: sta
+I (181200) example_connect: - IPv4 address: 192.168.1.6
+I (181210) example_connect: - IPv6 address: fe80:0000:0000:0000:9acd:acff:febf:9b44, type: ESP_IP6_ADDR_IS_LINK_LOCAL
+Start client:
+
+I (183220) GATTS_TABLE: main loop
+W (183810) wifi:<ba-add>idx:1 (ifx:0, a0:65:18:c8:b5:d5), tid:1, ssn:0, winSize:64
+Client HTTP_EVENT_ON_DATA: {"success":false,"statusCode":411,"message":"Token hết h�
+Client HTTP_EVENT_ON_DATA: �n hoặc đã sử dụng","errorCode":0,"errorName":"Length Required"}
+I (186680) HTTPS: HTTPS Status = 200, content_length = -1
+I (186680) HTTPS: HTTP_EVENT_DISCONNECTED
+I (186690) HTTPS: Finish http example
+W (191110) wifi:<ba-del>idx
+I (193220) GATTS_TABLE: main loop
+I (203220) GATTS_TABLE: main loop
+I (213220) GATTS_TABLE: main loop
+I (223220) GATTS_TABLE: main loop
+I (233220) GATTS_TABLE: main loop
+I (243220) GATTS_TABLE: main loop
+I (253220) GATTS_TABLE: main loop
+I (263220) GATTS_TABLE: main loop
+I (273220) GATTS_TABLE: main loop
+I (283220) GATTS_TABLE: main loop
+I (293220) GATTS_TABLE: main loop
+I (303220) GATTS_TABLE: main loop
+I (313220) GATTS_TABLE: main loop

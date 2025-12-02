@@ -1,0 +1,8 @@
+# exclude everything
+build/*
+.devcontainer/*
+
+.vscode/*
+
+
+*.VC.DB
